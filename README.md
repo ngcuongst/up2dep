@@ -1,4 +1,4 @@
-# up2dep
+# Up2Dep
 
 Up2Dep facilitates the task of keeping your project's library dependencies up-to-date.<br>
 In comparing to Lint and/or other tools, Up2Dep is better at the following points:<br>
