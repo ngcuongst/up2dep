@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="176dp"
+    android:height="176dp"
+    android:viewportHeight="176"
+    android:viewportWidth="176">
+
+    <group
+        android:pivotX="103"
+        android:pivotY="103"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:translateX="-8"
+        android:translateY="-8">
+        <path
+            android:name="ic_app_shortcut_last_added_ic"
+            android:fillColor="#000"
+            android:pathData="m29.333,44h-14.667v102.67c0,8.067 6.6,14.667 14.667,14.667h102.67v-14.667h-102.67zM146.663,14.667h-88c-8.067,0 -14.667,6.6 -14.667,14.667v88c0,8.067 6.6,14.667 14.667,14.667h88c8.067,0 14.667,-6.6 14.667,-14.667v-88c0,-8.067 -6.6,-14.667 -14.667,-14.667zM146.663,117.337h-88v-88h88zM95.33,102.67h14.667v-22h22v-14.667h-22v-22h-14.667v22h-22v14.667h22z" />
+    </group>
+</vector>
