@@ -22,5 +22,3 @@ To run Up2Dep you have 2 options:
   - From Up2Dep source code folder, type command: gradle runIde
 
 
-
-
