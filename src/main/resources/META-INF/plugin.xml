@@ -1,0 +1,62 @@
+<idea-plugin>
+    <id>Up2Dep</id>
+    <name>Up2Dep</name>
+    <version>2.3.0</version>
+    <vendor email="duc.nguyen@cispa.saarland" url="https://project.cispa.io/up2dep">
+        CISPA – Helmholtz Center for Information Security
+    </vendor>
+    <description>
+        <![CDATA[Up2Dep facilitates the task of keeping your project's library dependencies up-to-date.<br>
+        In comparing to existing tools, Up2Dep is better at the following points:<br>
+        - Up2Dep not only provides you information about the latest version of a dependency but also gives more insight on the compatible version if the latest version is incompatible with your code.<br>
+        - With Up2Dep you can easily navigate to your API dependency and  fix it with our API change prediction.<br>
+        - If a library is using insecure options of Java cryptographic APIs (Cryptographic API misuse), and your current code re-uses such code from the respective library, Up2Dep will notify you with information on what was wrong, and what is expected to be more secure from such library. Please check <a href="https://project.cispa.io/up2dep/report/index.html">here</a> for more details on cryptographic api misuse data <br>
+        - Up2Dep respects your privacy, we only record anonymous information (NOT your code) to improve Up2Dep, and we provide you the option to opt-out. Check <a href="https://project.cispa.io/up2dep/telemetry.html">here</a> to know more about the information we gather<br>
+
+        <br>
+        We try our best to support developers with better 3rd library decisions, yet Up2Dep is a research prototype, we would love to have your feedback so that we can improve it. If you encounter any bugs, or would like to have any particular features, feel free to contact us at the following <a href="https://project.cispa.io/up2dep/about.html">page</a>
+        https://project.cispa.io/up2dep/about.html
+        ]]>
+    </description>
+
+    <change-notes>
+    <![CDATA[
+      2.0.2 Fix bugs due to API changes in Android Studio 3.3 <br>
+      2.0.1 Compatible with Android Studio 3.3 <br>
+      2.0.0 Add cryptographic API misuse checks <br>
+      1.0.1 support for Android Studio 3.2 <br>
+      1.0.0 improved performance; add kotlin language support; add more libraries (now 1,521 libraries in total). <br>
+      0.1.0 include (security) vulnerable library versions check; Include 349 Android libraries (2877 versions); Bugs fixing. <br>
+      0.0.2 fix duplicated local sqlite files that incurs unnecessary space. <br>
+      0.0.1 first prototype.
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="191" until-build="191.*"/>
+    <depends>org.jetbrains.plugins.gradle</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+    <depends>org.jetbrains.kotlin</depends>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection shortName="Up2DepLibraryUpdatability" displayName="Up2Dep Library Updatability Inspector"
+        hasStaticDescription="true"
+                         enabledByDefault="true" implementationClass="inspection.Up2DepLibraryUpdatabilityInspection"
+                         groupName="LibraryUpdate"/>
+
+        <applicationService serviceImplementation="service.localService.LocalDataService"/>
+        <projectService serviceImplementation="ui.dependency.LibraryDependenciesWindow"/>
+    </extensions>
+
+
+    <application-components>
+        <!-- Add your application components here -->
+        <component>
+            <implementation-class>service.applicationComponent.ProjectListener</implementation-class>
+        </component>
+
+    </application-components>
+
+</idea-plugin>
