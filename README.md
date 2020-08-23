@@ -11,7 +11,6 @@ Please refer to our project's [website](https://project.cispa.io/up2dep/) for mo
 
 
 # Build
-In this repo, we provide the source code to build Up2Dep.
 To build Up2Dep you need to have [Gradle](https://gradle.org/) installed on your system. Type command: gradle build
 
 # Run
