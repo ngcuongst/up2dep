@@ -11,9 +11,10 @@ Please refer to our project's [website](https://project.cispa.io/up2dep/) for mo
 
 
 # Build
-To build Up2Dep you need to have [Gradle](https://gradle.org/) installed on your system. Gradle also requires Java JDK or JRE version 8 or higher.
+We use [Gradle](https://gradle.org/) to build Up2Dep source code. Gradle also requires Java JDK or JRE version 8 or higher. Please make sure you have the required Java JDK/JRE version.
 
-To build Up2Dep, type command: gradle build
+To build Up2Dep, run the script: ./build.sh
+
 After successfully build Up2Dep, you will find the compiled file at: build/distributions/up2dep-2.3.0.zip
 
 # Run
@@ -24,5 +25,4 @@ To run Up2Dep you have 2 options:
 - You can directly run Up2Dep with an instance of Android Studio:
   - Provide the path to Android Studio app in the build.gradle file for example: alternativeIdePath '/Applications/Android Studio.app'
   - From Up2Dep source code folder, type command: gradle runIde
-
 
