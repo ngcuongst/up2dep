@@ -11,13 +11,16 @@ Please refer to our project's [website](https://project.cispa.io/up2dep/) for mo
 
 
 # Build
-To build Up2Dep you need to have [Gradle](https://gradle.org/) installed on your system. Type command: gradle build
+To build Up2Dep you need to have [Gradle](https://gradle.org/) installed on your system. Gradle also requires Java JDK or JRE version 8 or higher.
+
+To build Up2Dep, type command: gradle build
+After successfully build Up2Dep, you will find the compiled file at: build/distributions/up2dep-2.3.0.zip
 
 # Run
 We have only tested Up2Dep with Android Studio version 3.5.1. As the API of Intellij IDEA (Androi Studio) that Up2Dep have to use changes frequently. We cannot guarantee that Up2Dep is compatible with newer versions of Android Studio.
 
 To run Up2Dep you have 2 options:
-- You can either install it from Android Studio: Android Studio -> Settings -> Plugins -> Install from disk (the little gear icon)
+- You can either install it from Android Studio: Android Studio -> Settings -> Plugins -> Install from disk (the little gear icon) -> browse to the file up2dep-2.3.0.zip at build/distributions
 - You can directly run Up2Dep with an instance of Android Studio:
   - Provide the path to Android Studio app in the build.gradle file for example: alternativeIdePath '/Applications/Android Studio.app'
   - From Up2Dep source code folder, type command: gradle runIde
