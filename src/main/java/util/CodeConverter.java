@@ -28,7 +28,6 @@ public class CodeConverter {
 
     /**
      * Converts class name in dex bytecode notation to fully-qualified class name
-     *ẓ
      * @param className name in dex bytcode notation, e.g. "Lcom/ebay/motors/garage/myvehicles/GarageInsertActivity;"
      * @return className fully-qualified class name, e.g. "com.ebay.motors.garage.myvehicles.GarageInsertActivity"
      */
@@ -58,7 +57,6 @@ public class CodeConverter {
 
     /**
      * Returns the method name of a method signature
-     *
      * @param methodSignature
      * @return
      */

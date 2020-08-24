@@ -299,7 +299,7 @@ public class CodeUtil {
 
 
     /**
-     * Returns a quoted String (double quote)·
+     * Returns a quoted String (double quote)
      *
      * @param str input string
      * @return quoted input string

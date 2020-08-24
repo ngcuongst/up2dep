@@ -53,12 +53,11 @@ public class GroupNode extends Node implements Navigatable, Comparable<GroupNode
         return myChildren;
     }
 
-    @NotNull
-    List<Node> getSwingChildren() {
+    List getSwingChildren() {
         return ObjectUtils.notNull(children, Collections.emptyList());
     }
 
-    @NotNull
+    
     GroupNode addOrGetGroup(@NotNull UsageGroup group, int ruleIndex, @NotNull Consumer<Node> edtInsertedUnderQueue) {
         GroupNode newNode = new GroupNode(this, group, ruleIndex);
         synchronized (this) {
