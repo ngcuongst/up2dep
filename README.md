@@ -1,6 +1,7 @@
 # Up2Dep
 
 Up2Dep is Android Studio plugin that facilitates the task of keeping your project's library dependencies up-to-date.<br>
+Up2Dep applies [LibScout](https://github.com/reddr/LibScout) to analyze the API changes across all versions of a library, and the [CryptoAnalysis](https://github.com/CROSSINGTUD/CryptoAnalysis) component of CogniCrypt to identify cryptographic API misuse in a library. The results are integrated inside Up2Dep and delivered to developers inside Android Studio.
 
 If you have any questions, please contact me at:
 
