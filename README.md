@@ -18,7 +18,7 @@ To build Up2Dep, run the script: ./build.sh
 After successfully build Up2Dep, you will find the compiled file at: build/distributions/up2dep-2.3.0.zip
 
 # Run
-We have only tested Up2Dep with Android Studio version 3.5.1. As the API of Intellij IDEA (Androi Studio) that Up2Dep have to use changes frequently. We cannot guarantee that Up2Dep is compatible with newer versions of Android Studio.
+We have only tested Up2Dep with Android Studio version 3.5.1. As the set of API of Intellij IDEA (Androi Studio) that Up2Dep depends on changes frequently. We cannot guarantee that Up2Dep is compatible with newer versions of Android Studio.
 
 To run Up2Dep you have 2 options:
 - You can either install it from Android Studio: Android Studio -> Settings -> Plugins -> Install from disk (the little gear icon) -> browse to the file up2dep-2.3.0.zip at build/distributions
