@@ -1,0 +1,16 @@
+SPEC java.net.URL
+
+OBJECTS 
+	java.lang.String url;
+
+EVENTS
+	httpConst: URL(url);	
+
+ORDER
+	httpConst?
+
+CONSTRAINTS
+	part(0, "://", url) in  {"http"} => part(1, "http://", url) in {""};
+	
+ENSURES
+	initialiedHttp[this];
