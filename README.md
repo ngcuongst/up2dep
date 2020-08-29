@@ -1,6 +1,6 @@
 # Up2Dep
 
-Up2Dep facilitates the task of keeping your project's library dependencies up-to-date.<br>
+Up2Dep is Android Studio that facilitates the task of keeping your project's library dependencies up-to-date.<br>
 
 If you have any questions, please contact me at:
 
