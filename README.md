@@ -28,7 +28,7 @@ To run Up2Dep you have 2 options:
 
 
 # Library database
-Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this data base in sqlite_data folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and is not the newest version. 
+Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this data base in sqlite_data folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. 
 
 In the database, you will find 1852 sqlite files, of which the main.sql file contains general information about all libraries, and the remaining 1851 files contain detailed information of 1851 libraries (updability, API availability, vulnerability, cryptographic API misuse).
 
