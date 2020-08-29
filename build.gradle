@@ -37,7 +37,7 @@ intellij {
     pluginName 'Up2Dep'
     type 'IC'
     version '2019.1.4'    
-    plugins 'android', 'junit', 'Groovy', 'gradle', 'properties', 'kotlin'
+    plugins 'android', 'junit', 'Groovy', 'gradle', 'properties', 'Kotlin'
     updateSinceUntilBuild false
     instrumentCode false
     // alternativeIdePath '/Applications/Android Studio.app'
