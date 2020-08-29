@@ -15,7 +15,9 @@ We use [Gradle](https://gradle.org/) to build Up2Dep source code. Gradle also re
 
 To build Up2Dep, run the script: ./build.sh
 
-After successfully build Up2Dep, you will find the compiled file at: build/distributions/up2dep-2.3.0.zip
+After successfully build Up2Dep, you will find the compiled version of Up2Dep at: build/distributions/up2dep-2.3.0.zip
+
+A docker container is also provided, so you can easily build Up2Dep. After you have successfully built the container, you can run the image and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip
 
 # Run
 We have only tested Up2Dep with Android Studio version 3.5.1. As the set of API of Intellij IDEA (Androi Studio) that Up2Dep depends on changes frequently. We cannot guarantee that Up2Dep is compatible with newer versions of Android Studio.
