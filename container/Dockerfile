@@ -38,6 +38,6 @@ RUN cd ${userhome} && \
         git clone https://github.com/ngcuongst/up2dep.git
 
 # build up2dep using gradle build
-RUN cd ${userhome} && \
-        ./downloads/gradle-5.1.1/bin/gradle build
+RUN cd ${userhome}/up2dep && \
+        ../downloads/gradle-5.1.1/bin/gradle build
 
