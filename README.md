@@ -52,7 +52,9 @@ And run the following command in Up2Dep directory: gradle runIde
 To see how Up2Dep works with Android projects, you can import the project [Up2DepExemplary](https://github.com/ngcuongst/up2dep/tree/master/sample_projects). Once the project is imported, you can open the build.gradle file of the "app" module where warnings of outdated libraries are shown (with quick-fixes options). To enable a quick-fix you can click on the bubble icon, or simply use the [alt] + [Enter] shortcut (e.g., on Mac OS).
 
 #	Virtual Machine
-We also provide a (Ubuntu) virtual machine that already has Android Studio 3.5.1 installed. Besides, Up2Dep source code had also been retrieved and built. Up2Dep then had been installed inside Android Studio. You just need to import the virtual machine and use Android Studio to play with Up2Dep. We provided an exemplary project named Up2DepExemplary project in our repo, you can use that one to familiarize yourself with the features of Up2Dep. 
+We also provide a (Ubuntu 64 bit) virtual machine that already has Android Studio 3.5.1 installed. Besides, Up2Dep source code had also been retrieved and built. Up2Dep then had been installed inside Android Studio. You just need to import the virtual machine and use Android Studio to play with Up2Dep. Please select Ubuntu 64 bit as the OS type when importing.
+
+We also provided an exemplary project named Up2DepExemplary project in our repo, you can use that one to familiarize yourself with the features of Up2Dep. 
 
 Please refer to figure 3,4,5 in our Paper to see use cases (screenshots) of how Up2Dep works. You can also use this virtual machine to build Up2Dep following the instruction described in Section 3. The actions (similar to Figure 3,4,5) can be seen when you open file build.gradle of the “app” module inside Android Studio.
 
