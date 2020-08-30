@@ -22,7 +22,7 @@ There are two options to build Up2Dep, we highly recommend you using the first o
 
 ###	Using the provided docker container:
 
-The container is based on the Ubuntu 20.04 image. Docker is required to build up2dep container. Once the container is successfully built. You can run the image, and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3) 
+The [container](https://github.com/ngcuongst/up2dep/tree/master/docker-container) is based on the Ubuntu 20.04 image. Docker is required to build up2dep container. Once the container is successfully built. You can run the image, and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3) 
 
 ###	Manually build (tested on Mac OS Catalina, and Ubuntu 20.04):
 
@@ -30,7 +30,7 @@ The container is based on the Ubuntu 20.04 image. Docker is required to build up
   o	Java JDK or JRE version 8 or higher. 
   o	cURL
   
-  To build Up2Dep, please run the build.sh script 
+  To build Up2Dep, please run the [build.sh](https://github.com/ngcuongst/up2dep/tree/master/build.sh) script 
   
   Once, the source code is successfully built, the compiled file will be located at build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3)
 
@@ -55,8 +55,12 @@ Please refer to figure 3,4,5 in our Paper to see use cases (screenshots) of how 
 
 Link to the virtual machine: https://up2dep.cispa.saarland/up2dep.ova
 
-# Library database
-Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this data base in sqlite_data folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. Up2Dep uses this database internally, however, if you would like to check the database, you should have sqlite installed on your machine.
+# For those who'd like to dig deeper inside Up2Dep
+## Library database
+Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this database in [sqlite_data](https://github.com/ngcuongst/up2dep/tree/master/sqlite_data) folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. Up2Dep uses this database internally, however, if you would like to check the database, you should have sqlite installed on your machine.
 
 In the database, you will find 1852 sqlite files, of which the main.sql file contains general information about all libraries, and the remaining 1851 files contain detailed information of 1851 libraries (updability, API availability, vulnerability, cryptographic API misuse).
 
+## Library crawlers
+We also provide here the crawlers, so you can also download the libraries (and their versions) that we use [LibScout](https://github.com/reddr/LibScout) and [CryptoAnalysis](https://github.com/CROSSINGTUD/CryptoAnalysis) component of Cognicrypt to analyze and built the aforementioned database.
+#
