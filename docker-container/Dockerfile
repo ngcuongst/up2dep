@@ -3,7 +3,6 @@ ARG root_passwd=up2dep
 ARG zip_file=gradle-5.1.1-bin.zip
 ARG gradle_url=https://downloads.gradle.org/distributions/${zip_file}
 
-
 ARG username=up2dep_dev
 ARG userhome=/home/${username}
 ARG userid=1000
@@ -27,9 +26,8 @@ RUN apt-get install zip unzip
 # unzip gradle
 RUN unzip ${userhome}/downloads/${zip_file} -d ${userhome}/downloads/
 
-#install java
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive \
+# install java
+RUN apt-get update && \    
     apt-get -y install openjdk-11-jdk-headless && \
     apt-get clean
 

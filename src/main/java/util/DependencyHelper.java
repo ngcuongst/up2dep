@@ -33,6 +33,7 @@ import org.jetbrains.plugins.groovy.lang.psi.api.statements.blocks.GrClosableBlo
 import quickfix.CompatibleVersionQuickFix;
 import quickfix.LatestVersionQuickFix;
 import quickfix.ShowDependenciesQuickFix;
+import quickfix.SendFeedback;
 import util.localDb.SqliteHelper;
 
 import java.util.*;
@@ -648,45 +649,6 @@ public class DependencyHelper {
         return dependencyElements;
     }
 
-//    //todo check for compatibility too
-//    public static void checkForSecondDep(OnlineLibInfo libInfo, PsiElement currentElement, HashMap<String, LocalGradleCoordinate> libDetails, HashMap<String, String> extraProperties) {
-//        Set<String> libNames = libDetails.keySet();
-//        HashMap<String, String> libsToBeUpdated = DependencyHelper.check2ndDeps(currentElement.getProject(), libInfo.getLibName(), libInfo.getLatestVersion().getRevision(), libInfo.getUsedAPIs(), libNames);
-//        if (libsToBeUpdated.size() > 0) {
-//            StringBuilder message = new StringBuilder(String.format("The following dependency also need(s) to be updated as %s depends on it. Would you like to update it too?\n", libInfo.getLibName()));
-//            ArrayList<PsiDependency> tobeUpdatedElements = new ArrayList<>();
-//            HashMap<String, GradleInfo> correspondingDependencies = findCorrespondingDependencies(currentElement, extraProperties);
-//            if (correspondingDependencies != null) {
-//                for (Map.Entry<String, String> entry : libsToBeUpdated.entrySet()) {
-//                    String libName = entry.getKey();
-//                    String libVersion = entry.getValue();
-//                    String currentLine = String.format("%s:%s\n", libName, libVersion);
-//                    message.append(currentLine);
-//                    LocalGradleCoordinate coordinates = libDetails.get(libName);
-//                    if (correspondingDependencies.containsKey(coordinates.toString())) {
-//                        GradleInfo gradleInfo = correspondingDependencies.get(coordinates.toString());
-//                        PsiElement element = gradleInfo.getDependencyElement();
-//                        PsiDependency dependency = new PsiDependency(element, gradleInfo.getGradleCoordinate(), libVersion);
-//                        tobeUpdatedElements.add(dependency);
-//                    }
-//
-//                }
-//
-//
-//                ApplicationManager.getApplication().invokeLater(() -> {
-//                    int reply = JOptionPane.showConfirmDialog(new JFrame(),
-//                            message, "Secondary dependencies", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, AllIcons.General.QuestionDialog);
-//                    if (reply == JOptionPane.YES_OPTION) {
-//                        //perform updating 2nd dependencies
-//                        upgradeVersions(currentElement.getProject(), tobeUpdatedElements);
-//
-//                    }
-//                });
-//            }
-//        }
-//    }
-
-
     private static void upgradeVersions(Project project, ArrayList<PsiDependency> tobeUpdatedElements) {
         ApplicationManager.getApplication().invokeLater(() -> WriteCommandAction.runWriteCommandAction(project, () -> {
             Document document = FileDocumentManager.getInstance().getDocument(tobeUpdatedElements.get(0).getElement().getContainingFile().getVirtualFile());
@@ -738,18 +700,8 @@ public class DependencyHelper {
             }
 
             //add feedback option to the last position, Intellij shows the list of quick-fixes in a reverse-order
+            quickFixes.add(0, new SendFeedback(gradleInfo.getGradleCoordinate().toString()));
 
-
-
-//            ProblemHighlightType problemHighlightType = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
-//
-//            if (currentOnlineLibInfo.getWarningType() == WarningType.VULNERABLE_OUTDATED) {
-//                problemHighlightType = ProblemHighlightType.ERROR;
-//            } else if (currentOnlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
-//                problemHighlightType = ProblemHighlightType.ERROR;
-//            }
-
-//            String message = Messages.getMessage(gradleInfo.getGradleCoordinate().getName(), currentOnlineLibInfo.getWarningType(), currentOnlineLibInfo.getLatestVersion().getRevision(), onlineLibInfo.getVulnerabilityUrl());
             finalQuickFixes = new LocalQuickFix[quickFixes.size()];
             int index = 0;
             for (LocalQuickFix quickFix : quickFixes) {
@@ -762,111 +714,6 @@ public class DependencyHelper {
         return finalQuickFixes;
     }
 
-//    private ArrayList<LocalQuickFix> generateQuickfixes(GradleInfo gradleInfo,
-//                                                        HashMap<String, OnlineLibInfo> dependingOnlineLibInfo) {
-//        ArrayList<LocalQuickFix> quickFixes = new ArrayList<>();
-//
-//
-//
-//        if (currentOnlineLibInfo != null) {
-//
-//
-//            //if the latest version is also the compatible version
-//            if (currentOnlineLibInfo.isLatest()) {
-//                if (currentOnlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo, dependingOnlineLibInfo));
-//                }
-//                quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//            } else {
-//                if (currentOnlineLibInfo.getCompatibleVersion() != null && !gradleInfo.getGradleCoordinate().equals(currentOnlineLibInfo.getCompatibleVersion())) { //if the latest version is not compatible with current API usages
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo, dependingOnlineLibInfo));
-//                    quickFixes.add(new CompatibleVersionQuickFix(currentOnlineLibInfo));
-//                    quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//                } else {
-//                    //if no compatible version is found
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo, dependingOnlineLibInfo));
-//                    quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//                }
-//            }
-//
-//            //add feedback option to the last position, Intellij shows the list of quick-fixes in a reverse-order
-//            quickFixes.add(0, new SendFeedback(gradleInfo.getGradleCoordinate().toString()));
-//
-//
-//            ProblemHighlightType problemHighlightType = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
-//
-//            if (onlineLibInfo.getWarningType() == WarningType.VULNERABLE_OUTDATED) {
-//                problemHighlightType = ProblemHighlightType.ERROR;
-//            } else if (onlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
-//                problemHighlightType = ProblemHighlightType.ERROR;
-//            }
-//
-//            String message = Messages.getMessage(gradleInfo.getGradleCoordinate().getName(), onlineLibInfo.getWarningType(), onlineLibInfo.getLatestVersion().getRevision(), onlineLibInfo.getVulnerabilityUrl());
-//            LocalQuickFix[] finalQuickFixes = new LocalQuickFix[quickFixes.size()];
-//            int index = 0;
-//            for (LocalQuickFix quickFix : quickFixes) {
-//                finalQuickFixes[index] = quickFix;
-//                index++;
-//            }
-//            registerError(gradleInfo.getDependencyElement(), message, finalQuickFixes, problemHighlightType);
-//        }
-//
-//        return quickFixes;
-//    }
-
-//    private ArrayList<LocalQuickFix> generateQuickfixes(GradleInfo gradleInfo, OnlineLibInfo currentOnlineLibInfo,
-//                                                        HashMap<String, OnlineLibInfo> dependingOnlineLibInfos) {
-//        ArrayList<LocalQuickFix> quickFixes = new ArrayList<>();
-//
-//
-//
-//        if (currentOnlineLibInfo != null) {
-//
-//
-//            //if the latest version is also the compatible version
-//            if (currentOnlineLibInfo.isLatest()) {
-//                if (currentOnlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo));
-//                }
-//                quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//            } else {
-//                //if the latest version is not compatible with current API usages
-//                LocalGradleCoordinate compatibleVersion = currentOnlineLibInfo.getCompatibleVersion();
-//                if ( compatibleVersion != null && !gradleInfo.getGradleCoordinate().equals(compatibleVersion)) {
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo, dependingOnlineLibInfos));
-//                    quickFixes.add(new CompatibleVersionQuickFix(currentOnlineLibInfo));
-//                    quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//                } else {
-//                    //if no compatible version is found
-//                    quickFixes.add(new ShowDependenciesQuickFix(currentOnlineLibInfo, dependingOnlineLibInfos));
-//                    quickFixes.add(new LatestVersionQuickFix(currentOnlineLibInfo));
-//
-//                }
-//            }
-//
-//            //add feedback option to the last position, Intellij shows the list of quick-fixes in a reverse-order
-//            quickFixes.add(0, new SendFeedback(gradleInfo.getGradleCoordinate().toString()));
-//
-//
-//
-//
-//
-//            LocalQuickFix[] finalQuickFixes = new LocalQuickFix[quickFixes.size()];
-//            int index = 0;
-//            for (LocalQuickFix quickFix : quickFixes) {
-//                finalQuickFixes[index] = quickFix;
-//                index++;
-//            }
-//
-//        }
-//
-//        return quickFixes;
-//    }
 
     public static String getWarningMessage(GradleInfo gradleInfo, GeneralOnlineLibInfo generalOnlineLibInfo) {
         OnlineLibInfo onlineLibInfo = generalOnlineLibInfo.getOnlineLibInfo();
@@ -887,17 +734,6 @@ public class DependencyHelper {
         } else if (currentOnlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
             problemHighlightType = ProblemHighlightType.ERROR;
         }
-        //TODO check warning type for trans Dep
-//        TransLibInfo  transLibInfo = generalOnlineLibInfo.getTransLibInfo();
-//        if(transLibInfo != null) {
-//            for (OnlineLibInfo dependingOnlineLibInfo : transLibInfo.getLibUsedInfos()) {
-//                if (dependingOnlineLibInfo.getWarningType() == WarningType.VULNERABLE_OUTDATED) {
-//                    problemHighlightType = ProblemHighlightType.ERROR;
-//                } else if (dependingOnlineLibInfo.getWarningType() == WarningType.INSECURE_API_USED) {
-//                    problemHighlightType = ProblemHighlightType.ERROR;
-//                }
-//            }
-//        }
         return problemHighlightType;
     }
 }
