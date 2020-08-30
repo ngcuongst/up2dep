@@ -11,26 +11,51 @@ duc.nguyen[at]cispa.saarland
 
 
 # Build
-We use [Gradle](https://gradle.org/) to build Up2Dep source code. Gradle also requires Java JDK or JRE version 8 or higher. Please make sure you have the required Java JDK/JRE version.
 
-To build Up2Dep, run the script: ./build.sh
+This process will take around 30-45 minutes depending on your network connection because the following components will be downloaded and built:
+  •	IntelliJ-Idea version 2019.1.4
+  •	Gradle 
+  •	Zip 
 
-After successfully build Up2Dep, you will find the compiled version of Up2Dep at: build/distributions/up2dep-2.3.0.zip
+There are two options to build Up2Dep, we highly recommend you using the first one (container):
 
-A docker container is also provided, so you can easily build Up2Dep. After you have successfully built the container, you can run the image and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip
+###	Using the provided docker container:
+
+The container is based on the Ubuntu 20.04 image. Docker is required to build up2dep container. Once the container is successfully built. You can run the image, and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3) 
+
+###	Manually build (tested on Mac OS Catalina, and Ubuntu 20.04):
+
+  If you would like to build Up2Dep on your own computer, we provided the script build.sh to build Up2Dep. The following dependencies are needed:
+  o	Java JDK or JRE version 8 or higher. 
+  o	cURL
+  
+  To build Up2Dep, please run the build.sh script 
+  
+  Once, the source code is successfully built, the compiled file will be located at build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3)
+
 
 # Run
-We have only tested Up2Dep with Android Studio version 3.5.1. As the set of API of Intellij IDEA (Androi Studio) that Up2Dep depends on changes frequently. We cannot guarantee that Up2Dep is compatible with newer versions of Android Studio.
+Up2Dep should work on all major OSes (Mac OS, Ubuntu, Windows). Yet, we highly recommend you to test it with Mac OS. 
 
-To run Up2Dep you have 2 options:
-- You can either install it from Android Studio: Android Studio -> Settings -> Plugins -> Install from disk (the little gear icon) -> browse to the file up2dep-2.3.0.zip at build/distributions
-- You can directly run Up2Dep with an instance of Android Studio:
-  - Provide the path to Android Studio app in the build.gradle file for example: alternativeIdePath '/Applications/Android Studio.app'
-  - From Up2Dep source code folder, type command: gradle runIde
+There are 2 options to run Up2Dep:
 
+### Directly install from Android Studio: 
+Android Studio -> Settings/Preferences -> Plugins -> Install from disk (the little gear icon) -> browse to the file up2dep-2.3.0.zip at build/distributions
+
+###	Run Up2Dep with gradle: 
+You can run an instance of Android Studio with Up2Dep installed by specifying the path to Android Studio in build.gradle. For example:
+alternativeIdePath '/Applications/Android Studio.app'
+And run the following command in Up2Dep directory: gradle runIde
+
+#	Virtual Machine
+We also provide a (Ubuntu) virtual machine that already has Android Studio 3.5.1 installed. Besides, Up2Dep source code had also been retrieved and built. Up2Dep then had been installed inside Android Studio. You just need to import the virtual machine and use Android Studio to play with Up2Dep. We provided an exemplary project named Up2DepExemplary project in our repo, you can use that one to familiarize yourself with the features of Up2Dep. 
+
+Please refer to figure 3,4,5 in our Paper to see use cases (screenshots) of how Up2Dep works. You can also use this virtual machine to build Up2Dep following the instruction described in Section 3. The actions (similar to Figure 3,4,5) can be seen when you open file build.gradle of the “app” module inside Android Studio.
+
+Link to the virtual machine: https://up2dep.cispa.saarland/up2dep.ova
 
 # Library database
-Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this data base in sqlite_data folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. 
+Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this data base in sqlite_data folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. Up2Dep uses this database internally, however, if you would like to check the database, you should have sqlite installed on your machine.
 
 In the database, you will find 1852 sqlite files, of which the main.sql file contains general information about all libraries, and the remaining 1851 files contain detailed information of 1851 libraries (updability, API availability, vulnerability, cryptographic API misuse).
 
