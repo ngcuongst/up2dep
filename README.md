@@ -62,5 +62,4 @@ Currently, when you run Up2Dep, it will download the library database from our w
 In the database, you will find 1852 sqlite files, of which the main.sql file contains general information about all libraries, and the remaining 1851 files contain detailed information of 1851 libraries (updability, API availability, vulnerability, cryptographic API misuse).
 
 ## Library crawlers
-We also provide here the crawlers, so you can also download the libraries (and their versions) that we use [LibScout](https://github.com/reddr/LibScout) and [CryptoAnalysis](https://github.com/CROSSINGTUD/CryptoAnalysis) component of Cognicrypt to analyze and built the aforementioned database.
-#
+We also provide here the crawlers, so you can also download the libraries (and their versions) which we had used [LibScout](https://github.com/reddr/LibScout) and [CryptoAnalysis](https://github.com/CROSSINGTUD/CryptoAnalysis) component of Cognicrypt to analyze and to build the aforementioned database.
