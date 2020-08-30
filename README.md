@@ -13,9 +13,10 @@ duc.nguyen[at]cispa.saarland
 # Build
 
 This process will take around 30-45 minutes depending on your network connection because the following components will be downloaded and built:
-  •	IntelliJ-Idea version 2019.1.4
-  •	Gradle 
-  •	Zip 
+
+- IntelliJ-Idea version 2019.1.4
+- Gradle 
+- Zip 
 
 There are two options to build Up2Dep, we highly recommend you using the first one (container):
 
