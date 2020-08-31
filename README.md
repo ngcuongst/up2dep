@@ -62,7 +62,7 @@ Link to the virtual machine: https://up2dep.cispa.saarland/up2dep.ova
 Username: up2dep
 Password: up2dep
 
-# For those who'd like to dig deeper inside Up2Dep
+# For those who'd like to dig deeper 
 ## Library database
 Currently, when you run Up2Dep, it will download the library database from our web server. However, we also provide this database in [sqlite_data](https://github.com/ngcuongst/up2dep/tree/master/sqlite_data) folder. Please bear in mind that, both (database from our web service and the data inside sqlite_data folder) are a snapshot or our database in January 2019 which we used for the study/evaluation in our paper, and are not the newest version. Up2Dep uses this database internally, however, if you would like to check the database, you should have sqlite installed on your machine.
 
