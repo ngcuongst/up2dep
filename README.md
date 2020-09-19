@@ -22,7 +22,7 @@ There are two options to build Up2Dep, we highly recommend you using the first o
 
 ###	Using the provided docker container:
 
-The [container](https://github.com/ngcuongst/up2dep/tree/master/docker-container) is based on the Ubuntu 20.04 image. Docker is required to build up2dep container. Once the container is successfully built. You can run the image, and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see Section 3) 
+The [container](https://github.com/ngcuongst/up2dep/tree/master/docker-container) is based on the Ubuntu 20.04 image. Docker is required to build up2dep container. Once the container is successfully built. You can run the image, and find the compiled version of Up2Dep at /home/up2dep_dev/up2dep/build/distributions/up2dep-2.3.0.zip. You can copy this file and install Up2Dep as a plugin into your Android Studio (see `Run` Section) 
 
 ###	Manually build (tested on Mac OS Catalina, and Ubuntu 20.04):
 
@@ -44,9 +44,14 @@ There are 2 options to run Up2Dep:
 Android Studio -> Settings/Preferences -> Plugins -> Install from disk (the little gear icon) -> browse to the file up2dep-2.3.0.zip at build/distributions
 
 ###	Run Up2Dep with gradle: 
-You can run an instance of Android Studio with Up2Dep installed by specifying the path to Android Studio in build.gradle. For example:
+You can run an instance of Android Studio with Up2Dep installed by specifying the path to Android Studio in build.gradle. 
+For example:
 alternativeIdePath '/Applications/Android Studio.app'
-And run the following command in Up2Dep directory: gradle runIde
+
+And run the following command in Up2Dep directory: 
+```console
+gradle runIde
+```
 
 #### Exemplary project
 To see how Up2Dep works with Android projects, you can import the project [Up2DepExemplary](https://github.com/ngcuongst/up2dep/tree/master/sample_projects). Once the project is imported, you can open the build.gradle file of the "app" module where warnings of outdated libraries are shown (with quick-fixes options). To enable a quick-fix you can click on the bubble icon, or simply use the [alt] + [Enter] shortcut (e.g., on Mac OS).
