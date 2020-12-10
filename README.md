@@ -75,3 +75,8 @@ In the database, you will find 1852 sqlite files, of which the main.sql file con
 
 ## Library crawlers
 We also provide here the crawlers, so you can also download the libraries (and their versions) which we had used [LibScout](https://github.com/reddr/LibScout) and [CryptoAnalysis](https://github.com/CROSSINGTUD/CryptoAnalysis) component of Cognicrypt to analyze and to build the aforementioned database.
+
+# Scientific Publication
+For technical details and evaluation results, please refer to our publication:
+[Up2Dep: Android Tool Support to Fix Insecure Code Dependencies](https://cispa.de/en/research/publications/3324-up2dep-android-tool-support-to-fix-insecure-code-dependencies)
+If you use Up2Dep in a scientific publication, we would appreciate citations using the Bibtex entry [up2dep.bib](https://github.com/ngcuongst/up2dep/tree/master/publication/up2dep.bib)
