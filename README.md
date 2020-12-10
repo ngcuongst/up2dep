@@ -79,4 +79,5 @@ We also provide here the crawlers, so you can also download the libraries (and t
 # Scientific Publication
 For technical details and evaluation results, please refer to our publication:
 [Up2Dep: Android Tool Support to Fix Insecure Code Dependencies](https://cispa.de/en/research/publications/3324-up2dep-android-tool-support-to-fix-insecure-code-dependencies)
+
 If you use Up2Dep in a scientific publication, we would appreciate citations using the Bibtex entry [up2dep.bib](https://github.com/ngcuongst/up2dep/tree/master/publication/up2dep.bib)
