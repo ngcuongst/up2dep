@@ -63,9 +63,6 @@ We also provided an exemplary project named Up2DepExemplary project in our repo,
 
 Please refer to figure 3,4,5 in our Paper to see use cases (screenshots) of how Up2Dep works. You can also use this virtual machine to build Up2Dep following the instruction described in Section 3. The actions (similar to Figure 3,4,5) can be seen when you open file build.gradle of the “app” module inside Android Studio.
 
-Link to the virtual machine: https://up2dep.cispa.saarland/up2dep.ova
-Username: up2dep
-Password: up2dep
 
 # For those who'd like to dig deeper 
 ## Library database
